@@ -4,7 +4,7 @@ import withReactContent from 'sweetalert2-react-content';
 import { useState } from "react";
 
 
-const Formulario = () => { 
+const Formulario = ({ addTodo }) => { 
     // inicializamos los campos
     // const [title, setTitle] = useState('');
     // const [description, setDescription] = useState('');
@@ -30,6 +30,12 @@ const Formulario = () => {
                 text: 'Título y descripción son obligatorios',
               });
         }
+
+        addTodo({
+            id: Date.now(),
+            ...todo,
+            state: todo.state
+         });
 
         console.log("Error");
         console.log( title, description, title);
