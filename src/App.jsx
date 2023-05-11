@@ -38,11 +38,16 @@ const App = () => {
    // setTodos( (prev) => [...prev, todo]);
   }    
 
+  const deleteTodo = id => {
+    const itemsTodos = todos.filter(todo => todo.id != id);
+    setTodos(itemsTodos);
+  }
+
   return (
     <div className='container'>
       <h1>Formularios</h1>
       <Formulario addTodo={ addTodo }/>
-      <Todos todos={ todos }/>
+      <Todos todos={ todos } deleteTodo={ deleteTodo }/>
     </div>
   )
 };
