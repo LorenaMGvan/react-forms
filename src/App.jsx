@@ -29,7 +29,7 @@ const initialStateTodos = [
 ];
 
 
-const App = () => {
+const App = () => {   
 
   const [todos, setTodos] = useState(initialStateTodos);
 

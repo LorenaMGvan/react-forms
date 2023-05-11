@@ -15,7 +15,7 @@ const Formulario = ({ addTodo }) => {
         title: 'Campo 1',
         description: 'Campo 2',
         state: 'pendiente',
-        prioridad: false
+        prioridad: true
     });
 
     const { title, description, state, prioridad } = todo;
@@ -34,11 +34,21 @@ const Formulario = ({ addTodo }) => {
         addTodo({
             id: Date.now(),
             ...todo,
-            state: todo.state
+            state: state === 'completado'  // automaticamente devuelve un booleano porque  es un ternario, es lo mismo que abajo
+            // state: state === 'completado' ? true : false
+
          });
 
-        console.log("Error");
-        console.log( title, description, title);
+        console.log("Error test A");
+
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Todo agregado correctamente',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        
     } 
     
     const handleChange = (e) => {
