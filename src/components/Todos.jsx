@@ -1,14 +1,18 @@
 import Todo from "./Todo";
 
 /* eslint-disable react/prop-types */
-const Todos = ({ todos, deleteTodo }) => {
+const Todos = ({ todos, deleteTodo, updateTodo }) => {
 return (
     <div className="mt-5">
         <h2 className="text-center mt-5">Todos</h2>
         <ul className="list-group">
             {
                 todos.map( todoX => (
-                    <Todo key={todoX.id} todo={todoX} deleteTodo={ deleteTodo }/>
+                    <Todo key={ todoX.id }   
+                         todo={ todoX } 
+                         deleteTodo={ deleteTodo }
+                         updateTodo={ updateTodo }
+                         />
                 ))
             }
             {

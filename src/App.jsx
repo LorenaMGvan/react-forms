@@ -43,11 +43,33 @@ const App = () => {
     setTodos(itemsTodos);
   }
 
+  const updateTodo = id => {
+    const itemUpdate = todos.map( todo => {
+      if (todo.id === id) {
+        todo.state =!todo.state;
+      }
+      return todo;
+    });
+
+    setTodos(itemUpdate);
+  }
+
+  const orderTodo = itemsTodos => {
+    return itemsTodos.sort((a, b) =>{
+      if (a.prioridad === b.prioridad) return 0
+      if (a.prioridad) return -1
+      if (!a.prioridad) return 1
+    });
+  } 
+
   return (
     <div className='container'>
       <h1>Formularios</h1>
       <Formulario addTodo={ addTodo }/>
-      <Todos todos={ todos } deleteTodo={ deleteTodo }/>
+      <Todos 
+        todos={orderTodo(todos)} 
+        deleteTodo={deleteTodo}
+        updateTodo={updateTodo}/>
     </div>
   )
 };
